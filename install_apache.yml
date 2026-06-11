@@ -1,24 +1,23 @@
 ---
-
 - name: Deploy Apache Application
   hosts: all
   become: yes
 
   tasks:
 
-  - name: Install Apache
-    apt:
-    name: apache2
-    state: present
-    update_cache: yes
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
 
-  - name: Copy Application Page
-    copy:
-    src: index.html
-    dest: /var/www/html/index.html
+    - name: Copy Application Page
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
 
-  - name: Start Apache Service
-    service:
-    name: apache2
-    state: started
-    enabled: yes
+    - name: Start Apache Service
+      service:
+        name: apache2
+        state: started
+        enabled: yes
