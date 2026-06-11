@@ -1,17 +1,16 @@
 ---
-
 - name: Validate Web Server
   hosts: all
   become: yes
 
   tasks:
 
-  - name: Verify Apache Service
-    service:
-    name: apache2
-    state: started
+    - name: Verify Apache Service
+      service:
+        name: apache2
+        state: started
 
-  - name: Check Website
-    uri:
-    url: http://localhost
-    status_code: 200
+    - name: Check Website
+      uri:
+        url: http://localhost
+        status_code: 200
